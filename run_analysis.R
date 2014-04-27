@@ -69,5 +69,5 @@ train_test_roll_up=train_test[with(train_test,order(Subject_number,Activity_Id))
 library(reshape2) 
 molten=melt(train_test_roll_up,id=c("Subject_number","Activity_Id","Activity_label"),measure.vars=colnames(train_test_roll_up[,c(4:69)]))
 avg_tidy_dataset=dcast(molten,Subject_number+Activity_Id~variable,mean)
-write.table(avg_tidy_dataset,file="avg_tidy_datset.txt",quote=FALSE,row.names=FALSE,col.names=TRUE)
+write.table(avg_tidy_dataset,file="avg_tidy_dataset.txt",quote=FALSE,row.names=FALSE,col.names=TRUE)
 
