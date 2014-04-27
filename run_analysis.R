@@ -62,11 +62,12 @@ X_train_v3=X_train_v2[,c(2,1,69,3:68)] #Reordering columns
 
 #********Appending (test & train dataframes************************************
 train_test=rbind(X_train_v3,X_test_v3)
-
+write.table(train_test,file="tidy_dataset1.txt",quote=FALSE,row.names=FALSE,col.names=TRUE)
 
 #********Creating a second tidy dataset with the average of each variable for each activity and each subject. ************************************
 train_test_roll_up=train_test[with(train_test,order(Subject_number,Activity_Id)),]
 library(reshape2) 
 molten=melt(train_test_roll_up,id=c("Subject_number","Activity_Id","Activity_label"),measure.vars=colnames(train_test_roll_up[,c(4:69)]))
-Avg_tidy_dataset=dcast(molten,Subject_number+Activity_Id~variable,mean)
+avg_tidy_dataset=dcast(molten,Subject_number+Activity_Id~variable,mean)
+write.table(avg_tidy_dataset,file="avg_tidy_datset.txt",quote=FALSE,row.names=FALSE,col.names=TRUE)
 

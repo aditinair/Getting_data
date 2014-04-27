@@ -6,6 +6,8 @@ _**NOTE:**_ For this analysis, the files in the 'Inertial Files' folder for both
 The **run_analysis.R** script has been commented in detail to explain the steps performed in generating the following datasets:  
 
 **1. train_test:** This has 69 variables in all including the 66 features that extract only mean and standard deviation measurements. Each record will give the measurements for the 66 features for a particular subject and for the acitvity he/she performed.  
+Note that **'train_test' dataset has been written as tidy_dataset1.txt while exporting out of R.**    
+
 **2. avg_tidy_dataset:** This aggregates the train_test dataset by obtaining the average values of the required features for a a particular subject and the activity he/she performed.  
 
 The **codebook.md** file explains in detail what each of the 69 variables in the train_test dataset depict.
