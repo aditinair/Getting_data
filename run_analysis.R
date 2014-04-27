@@ -65,7 +65,8 @@ train_test=rbind(X_train_v3,X_test_v3)
 
 
 #********Creating a second tidy dataset with the average of each variable for each activity and each subject. ************************************
+train_test_roll_up=train_test[with(train_test,order(Subject_number,Activity_Id)),]
 library(reshape2) 
-molten=melt(subj_roll,id=c("Subject_number","Activity_Id","Activity_label"),measure.vars=colnames(subj_roll[,c(4:69)]))
+molten=melt(train_test_roll_up,id=c("Subject_number","Activity_Id","Activity_label"),measure.vars=colnames(train_test_roll_up[,c(4:69)]))
 Avg_tidy_dataset=dcast(molten,Subject_number+Activity_Id~variable,mean)
 
